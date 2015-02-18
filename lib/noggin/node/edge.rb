@@ -21,15 +21,9 @@ module Noggin
         origin.output * weight
       end
 
-      def derivative_fn
-        input
-      end
-
       def derivative_chain
-        @derivative = derivative_fn * dest.derivative_chain
+        @derivative = input * dest.derivative_chain
         @weight * dest.derivative_chain
-        # puts "#{@derivative} of class #{self.class}"
-        # @derivative
       end
 
     end

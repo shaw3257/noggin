@@ -11,12 +11,12 @@ module Noggin
         @dests = []
       end
 
-      def net
+      def input
         origins.inject(0) { |sum, edge | sum += edge.value }
       end
 
       def output
-        1 / ( 1 + Math.exp(-1 * net) )
+        1 / ( 1 + Math.exp(-1 * input) )
       end
 
       def output_derivative
@@ -25,8 +25,6 @@ module Noggin
 
       def derivative_chain
         derivative = output_derivative * dests.inject(0) { |sum, edge| sum += edge.derivative_chain }
-        # puts "#{derivative} of class #{self.class}"
-        # derivative
       end
 
     end
