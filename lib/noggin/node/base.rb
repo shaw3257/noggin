@@ -27,6 +27,16 @@ module Noggin
         derivative = output_derivative * dests.inject(0) { |sum, edge| sum += edge.derivative_chain }
       end
 
+      def pretty_print
+        out = []
+        out << " ------"
+        dests.each do |edge|
+          out << "|      | -EDGE--(#{edge.pretty_print}) "
+        end
+        out << " ------"
+        out
+      end
+
     end
   end
 end

@@ -26,6 +26,10 @@ module Noggin
         @weight * dest.derivative_chain
       end
 
+      def pretty_print
+        "w: #{@weight.round(6)}, d: #{@derivative.round(6)}"
+      end
+
     end
   end
 end
