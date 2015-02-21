@@ -31,7 +31,7 @@ module Noggin
           propagate_error! batch[:input], batch[:output]
         end
       end
-      return
+      return self
     end
 
     def propagate_error! input, expected

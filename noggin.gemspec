@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'noggin/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'noggin'
+  spec.name          = 'the_noggin'
   spec.version       = Noggin::VERSION
   spec.authors       = ['Shawn']
   spec.email         = ['shaw3257@gmail.com']
