@@ -20,7 +20,14 @@ network.run [1, 1]  # 0.0142
 ```
 
 ## Options
-
+``` Ruby
+Noggin::Network.new( 
+    max_training_laps: 100000, # How many propgation of errors to do when training
+    learning_rate: 0.1, # How fast the network learns
+    hidden_layer_size: 1 , # Number of hidden layers
+    hidden_layer_node_size: 2 # Number of nodes each hidden layer has
+)
+```
 
 ## Print Network
 
