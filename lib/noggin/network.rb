@@ -29,7 +29,6 @@ module Noggin
       options[:max_training_laps].times do
         data_batch.each do |batch|
           propagate_error! batch[:input], batch[:output]
-          puts "#{run batch[:input]}, expected  #{batch[:output]}"
         end
       end
     end
