@@ -1,4 +1,4 @@
-# noggin
+# Noggin
 Ruby Neural Network implementation using backpropagation and gradient descent for training
 
 
@@ -18,3 +18,6 @@ network.run [1, 0]  # 0.9702
 network.run [1, 1]  # 0.0142
 
 ```
+
+## Options
+
