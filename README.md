@@ -20,7 +20,7 @@ network.run [1, 1]  # 0.0142
 ```
 
 ## Installation
-``` gem install noggin ```
+``` gem install the_noggin ```
 
 ## Options
 ``` Ruby
