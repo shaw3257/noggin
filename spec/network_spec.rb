@@ -9,8 +9,8 @@ describe Noggin::Network do
   let(:output_node) { subject.layers[2].first }
     
   before do
+    allow_any_instance_of(Noggin::Node::Edge).to receive(:weight).and_return(0.66)
     subject.train [{ input: [1], output: 0 }]
-    
   end
 
   it 'sets up the network graph according to settings' do
@@ -26,12 +26,9 @@ describe Noggin::Network do
     expect(subject.layers[1].size).to eq(1)
   end
 
-  it 'sets max max training laps' do
-  
-  end
-
   it 'backpropagates error' do
-  
+    expect(input_node.dests.first.derivative).to be_within(0.00001).of(0.02147)
+    expect(hidden_node.dests.first.derivative).to be_within(0.00001).of(0.095468)
   end
 
 end

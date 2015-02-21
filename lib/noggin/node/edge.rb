@@ -22,12 +22,12 @@ module Noggin
       end
 
       def derivative_chain
-        @derivative = input * dest.derivative_chain
-        @weight * dest.derivative_chain
+        self.derivative = input * dest.derivative_chain
+        self.weight * dest.derivative_chain
       end
 
       def pretty_print
-        "w: #{@weight.round(6)}, d: #{@derivative.round(6)}"
+        "w: #{weight.round(6)}, d: #{derivative.round(6)}"
       end
 
     end
