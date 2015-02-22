@@ -8,9 +8,11 @@ module Noggin
 
     DEFAULTS = {
         learning_rate: 0.2,
+        momentum: 0.2,
         max_training_laps: 100000,
         hidden_layer_size: 1,
-        hidden_layer_node_size: 2
+        hidden_layer_node_size: 2,
+        log: false
     }
 
     def initialize **opts
@@ -26,9 +28,13 @@ module Noggin
 
     def train data_batch
       init_network(data_batch)unless @ready
-      options[:max_training_laps].times do
+      options[:max_training_laps].times do |i|
         data_batch.each do |batch|
           propagate_error! batch[:input], batch[:output]
+          if options[:log] && i == options[:max_training_laps] - 1
+            print "Last train for input: #{batch[:input]}, expected: #{batch[:output]}"
+            pretty_print
+          end
         end
       end
       return self
@@ -43,7 +49,9 @@ module Noggin
 
     def update_weights!
       edges.each do |edge|
-        edge.weight -= options[:learning_rate] * edge.derivative
+        delta_weight = options[:learning_rate] * edge.derivative
+        edge.weight -= delta_weight + (edge.momentum * edge.previous_weight)
+        edge.previous_weight = delta_weight
       end
     end
 
@@ -77,7 +85,7 @@ module Noggin
     end
 
     def connect_nodes origin, dest
-      edge = Noggin::Node::Edge.new origin: origin, dest: dest
+      edge = Noggin::Node::Edge.new origin: origin, dest: dest, momentum: options[:momentum]
       origin.dests << edge
       dest.origins << edge
     end

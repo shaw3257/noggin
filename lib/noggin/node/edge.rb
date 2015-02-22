@@ -5,12 +5,16 @@ module Noggin
       attr_accessor :origin
       attr_accessor :dest
       attr_accessor :weight
+      attr_accessor :previous_weight
       attr_accessor :derivative
+      attr_accessor :momentum
 
-      def initialize origin: origin, dest: dest, weight: rand(0.20...0.80)
+      def initialize origin: origin, dest: dest, weight: rand(0.20...0.80), momentum: 0.1
         @origin = origin
         @dest = dest
         @weight = weight
+        @momentum = momentum
+        @previous_weight = 0
       end
 
       def input

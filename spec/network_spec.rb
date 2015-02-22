@@ -36,7 +36,7 @@ end
 
 describe :xor do
 
-  subject { Noggin::Network.new( max_training_laps: 10000, learning_rate: 0.1, hidden_layer_size: 1, hidden_layer_node_size: 2 ) }
+  subject { Noggin::Network.new( max_training_laps: 10000, learning_rate: 0.1, hidden_layer_size: 1, hidden_layer_node_size: 2, log: true ) }
 
 
   before do
@@ -49,7 +49,7 @@ describe :xor do
   end
 
   it 'learns xor' do
-    subject.pretty_print
+   
   end
 
 end
