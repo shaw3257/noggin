@@ -27,8 +27,10 @@ network.run [1, 1]  # 0.0142
 Noggin::Network.new( 
     max_training_laps: 100000, # How many propgation of errors to do when training
     learning_rate: 0.1, # How fast the network learns
+    momentum: 0.2, # How much of previous weight deltas should be applied to next delta  
     hidden_layer_size: 1 , # Number of hidden layers
-    hidden_layer_node_size: 2 # Number of nodes each hidden layer has
+    hidden_layer_node_size: 2, # Number of nodes each hidden layer has
+    log: true # print out network state for each input during last iteration.
 )
 ```
 
