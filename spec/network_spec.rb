@@ -31,4 +31,26 @@ describe Noggin::Network do
     expect(hidden_node.dests.first.derivative).to be_within(0.00001).of(0.095468)
   end
 
+
+  describe :xor do
+
+    subject { Noggin::Network.new( max_training_laps: 10000, learning_rate: 0.1, hidden_layer_size: 1, hidden_layer_node_size: 2 ) }
+
+
+    before do
+      subject.train([
+        { input: [0, 0], output: 0 },
+        { input: [0, 1], output: 1 },
+        { input: [1, 0], output: 1 },
+        { input: [1, 1], output: 0 }
+      ])
+    end
+
+    it 'learns xor' do
+      subject.print_network
+
+    end
+
+  end
+
 end
