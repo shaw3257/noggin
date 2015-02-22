@@ -5,6 +5,8 @@ module Noggin
       attr_reader :origins
       attr_reader :dests
       attr_accessor :derivative
+      attr_accessor :cached_input
+      attr_accessor :cached_output
 
       def initialize
         @origins = []

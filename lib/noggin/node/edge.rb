@@ -22,8 +22,9 @@ module Noggin
       end
 
       def derivative_chain
-        self.derivative = input * dest.derivative_chain
-        self.weight * dest.derivative_chain
+        derivative_chain = dest.derivative_chain
+        @derivative = input * derivative_chain
+        weight * derivative_chain
       end
 
       def pretty_print

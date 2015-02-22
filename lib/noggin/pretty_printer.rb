@@ -1,6 +1,7 @@
 module Noggin
   class PrettyPrinter
     def self.print_network layers
+      print "\n"
       grid = []
       layers.each do |layer|
         grid << col = []
