@@ -7,9 +7,9 @@ module Noggin
     attr_reader :options
 
     DEFAULTS = {
-        learning_rate: 0.2,
-        momentum: 0.2,
-        max_training_laps: 100000,
+        learning_rate: 0.3,
+        momentum: 5,
+        max_training_laps: 2000,
         hidden_layer_size: 1,
         hidden_layer_node_size: 2,
         log: false
