@@ -23,12 +23,12 @@ describe Noggin::Network do
   end
 
   it 'sets hidden layer node size' do
-    expect(subject.layers[1].size).to eq(1)
+    expect(subject.layers[1].size).to eq(2)
   end
 
   it 'backpropagates error' do
-    expect(input_node.dests.first.derivative).to be_within(0.00001).of(0.02147)
-    expect(hidden_node.dests.first.derivative).to be_within(0.00001).of(0.095468)
+    expect(input_node.dests.first.derivative).to be_within(0.00001).of(0.015098)
+    expect(hidden_node.dests.first.derivative).to be_within(0.00001).of(0.10851)
   end
 
 end
@@ -36,7 +36,7 @@ end
 
 describe :xor do
 
-  subject { Noggin::Network.new( max_training_laps: 10000, learning_rate: 0.2, hidden_layer_size: 1, hidden_layer_node_size: 2, momentum: 0.1, log: true ) }
+  subject { Noggin::Network.new( max_training_laps: 2000, learning_rate: 0.3, hidden_layer_size: 1, hidden_layer_node_size: 2, momentum: 5, log: true ) }
 
 
   before do

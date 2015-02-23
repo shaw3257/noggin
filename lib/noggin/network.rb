@@ -56,11 +56,14 @@ module Noggin
     end
 
     def init_network data_batch
-      @input_nodes = Array.new(data_batch.first[:input].size){ Noggin::Node::Input.new }
+      @input_nodes = Array.new(data_batch.first[:input].size + 1){ Noggin::Node::Input.new }
       @layers << @input_nodes
       last_layer = @input_nodes
       options[:hidden_layer_size].times do |i|
         new_layer = Array.new(options[:hidden_layer_node_size]){ Noggin::Node::Base.new }
+        bias_node = Noggin::Node::Input.new
+        bias_node.output = 1
+        new_layer << bias_node
         @layers << new_layer
         connect_layer last_layer, new_layer
         last_layer = new_layer
@@ -100,7 +103,11 @@ module Noggin
 
     def update_input_nodes input
       input_nodes.each_with_index do | node, i |
-        node.output = input[i]
+        if i == (input.size)
+          node.output = 1
+        else
+          node.output = input[i]
+        end
       end
     end
 
