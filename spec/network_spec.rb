@@ -134,7 +134,7 @@ end
 
 describe :xor do
 
-  subject { Noggin::Network.new training_laps: 5000}
+  subject { Noggin::Network.new training_laps: 20000}
 
   before do
     print subject.train([

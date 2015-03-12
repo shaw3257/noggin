@@ -30,23 +30,5 @@ Noggin::Network.new(
     momentum: 0.2, # How much of previous weight deltas should be applied to next delta  
     hidden_layer_size: 1 , # Number of hidden layers
     hidden_layer_node_size: 2, # Number of nodes each hidden layer has
-    log: true # print out network state for each input during last iteration.
 )
-```
-
-## Print Network
-
-``` Ruby
-network.pretty_print
-```
-```
- ------                                           ------                                          --------------      
-|      | -EDGE--(w: 0.438443, d: 0.01759)        |      | -EDGE--(w: 0.515923, d: 0.09704)       | ed: 0.668486       
-|      | -EDGE--(w: 0.746539, d: 0.013825)        ------                                         | d: 0.148145        
- ------                                           ------                                         | e: 0.223437        
- ------                                          |      | -EDGE--(w: 0.485781, d: 0.11099)       | o: 0.668486        
-|      | -EDGE--(w: 0.199745, d: 0.01759)         ------                                          --------------      
-|      | -EDGE--(w: 0.345684, d: 0.013825)       
- ------                                          
-   
 ```
