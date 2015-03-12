@@ -137,7 +137,7 @@ describe :xor do
   subject { Noggin::Network.new training_laps: 20000}
 
   before do
-    print subject.train([
+    subject.train([
       { input: [0, 0], expected: 0 },
       { input: [0, 1], expected: 1 },
       { input: [1, 0], expected: 1 },
