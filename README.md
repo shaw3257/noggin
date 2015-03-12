@@ -1,5 +1,7 @@
 # Noggin
-Ruby Neural Network implementation using backpropagation and gradient descent for training
+A Neural Network written in Ruby with an objected oriented implementation. Training is done using http://en.wikipedia.org/wiki/Backpropagation and http://en.wikipedia.org/wiki/Gradient_descent.
+
+The simple API was inspired from https://github.com/harthur/brain
 
 
 ``` Ruby
