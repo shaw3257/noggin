@@ -3,7 +3,7 @@ module Noggin
 
     attr_accessor :origin, :dest, :weight, :derivative, :forward_input, :forward_output, :backward_input, :backward_output
 
-    def initialize origin: origin, dest: dest, weight: rand(0.20...0.80), momentum: 1, learning_rate: 0.3
+    def initialize origin: origin, dest: dest, weight: rand(-0.20...0.20), momentum: 0.1, learning_rate: 0.3
       @origin = origin
       @dest = dest
       @weight = weight
